@@ -1,17 +1,14 @@
-# "Naive Bayes Classifier"
+# "Naive Bayes Spam Filter"
 
-Machine learning prediction algorithm. Project for Applied Statistics Course.
-
-### Link to the app
-- link
+Creating a naive Bayes spam filter in R. Project for Applied Statistics Course.
 
 ### Authors and assignments
 
 -   Alesandro Žužić (azuzic@unipu.hr) -
 -   Luka Blašković (lblaskovi@unipu.hr) -
 
-### Prototype
-- 
+### Documentation
+- pdf file will go here
 
 ### Short description of available functionalities
 -
