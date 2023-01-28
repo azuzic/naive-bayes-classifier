@@ -11,9 +11,7 @@ Creating a naive Bayes spam filter in R. Project for Applied Statistics Course.
 - pdf file will go here
 
 ### Short description of available functionalities
--
--
--
+The naive Bayes is a classification algorithm that is suitable for binary and multiclass classification. It's based on applying Bayes' theorem. It is useful for making predictions and forecasting data based on historical results.
 
 ### Youtube video
 
