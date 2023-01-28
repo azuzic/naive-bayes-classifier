@@ -1,4 +1,4 @@
-# "Naive Bayes Spam Filter"
+# "Naive Bayes SpamFilter"
 
 Creating a naive Bayes spam filter in R. Project for Applied Statistics Course.
 
