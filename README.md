@@ -1,6 +1,6 @@
 # "Naive Bayes Classifier"
 
-Machine learning prediction algorithm. Project for Applied Statistics Course
+Machine learning prediction algorithm. Project for Applied Statistics Course.
 
 ### Link to the app
 - link
@@ -26,5 +26,5 @@ Machine learning prediction algorithm. Project for Applied Statistics Course
 
 [Juraj Dobrila University of Pula](http://www.unipu.hr/)  
 [Pula Faculty of Informatics](https://fipu.unipu.hr/)  
-Course, Academic Year 2022./2023.  
+Course: **Applied Statistics**, Academic Year 2022./2023.  
 Mentor: **Siniša Sovilj** (https://fipu.unipu.hr/fipu/sinisa.sovilj, sinisa.sovilj@unipu.hr)
