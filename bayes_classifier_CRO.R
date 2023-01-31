@@ -1,3 +1,6 @@
+#Naivni Bayesov klasifikator - na primjeru filtriranja neželjenih od željenih poruka
+#Github repozitorij: https://github.com/lukablaskovic/naive-bayes-spam_filter
+
 #install.packages(c("dplyr", "stringr", "rsample"))
 #install.packages("rsample")
 library("dplyr")
