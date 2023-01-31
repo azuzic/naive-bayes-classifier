@@ -5,6 +5,7 @@ library("stringr")
 
 #Čitanje podataka iz spam.csv
 #Izvor podataka: SMS Spam Collection Dataset - https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
+#Postavljanje sjemena na JMBAG (Luka Blašković)
 set.seed(0303088177)
 
 spam <- read.csv("spam.csv")
@@ -15,7 +16,7 @@ spam <- spam %>%
   tidyr::unite(col = "msg", 2:5, sep = " ", na.rm = TRUE) %>% 
   rename("label" = v1)
 
-#label (Ham - 'Good SMS', Spam - 'Bad SMS')
+#label (Ham - 'Dobar/Stvarni SMS', Spam - 'Loš/Neželjena pošta SMS')
 #msg (SMS message content)
 head(spam)
 
@@ -61,7 +62,7 @@ head(train_sample)
 #3. label:spam, msg: "07732584351 - Rodger Burns - MSG = We tried to call you re your reply to our sms for a free nokia mobile", msg_list:c("_longnum_", "rodger", "burns", "msg", "we", "tr [...]
 
 
-#Izgradnja riječnika
+#Izgradnja rječnika
 #Sljedeći korak je izračunati vjerojatnosti pojavljivanja bilo koje riječi u svakoj vrsti poruke
 #Izdvajanje svih jedinstvenih riječi u skupu podataka 
 vocab <- train_sample %>%
@@ -238,11 +239,19 @@ performance
 #Na skupu podataka od 5574 redaka, rezulitralo je visokom točnošču od 0.984 s Cohenovom kappa vrijednošću od 0.927 što ukazuje na gotovo savršeno slaganje.
 
 #Confusion matrix
-table(paste("actual", test_sample$label), paste("pred", test_sample$.pred))
+cm <- table(paste("actual", test_sample$label), paste("pred", test_sample$.pred))
 #
 #            pred ham pred spam
 #actual ham      1202         5
 #actual spam       21       166
+
+cm_melted <- melt(cm)
+ggplot(cm_melted, aes(x=Var1, y=Var2, fill=value)) + 
+  geom_tile() + 
+  geom_text(aes(label=value), color="black", size=3.5) +
+  scale_fill_gradient(low = "white", high = "steelblue") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Confusion Matrix", x = "Prediction", y = "Actual")
 
 #1202 poruka za koje je predviđeno da su stvarne, i jesu  stvarne
 #5 poruka za koje je predviđeno da su neželjene, su ustvari stvarne

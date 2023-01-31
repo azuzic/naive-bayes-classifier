@@ -235,14 +235,28 @@ performance
 #1 accuracy multiclass     0.984
 #2 kap      multiclass     0.927
 
+#On a 5574 rows dataset, it resulted in high accuracy of 0.984 with Cohen's kappa value of 0.927, indicating almost perfect agreement.
+
+library(ggplot2)
+library(reshape2)
+
 #Confusion matrix
-table(paste("actual", test_sample$label), paste("pred", test_sample$.pred))
+cm <- table(paste("actual", test_sample$label), paste("pred", test_sample$.pred))
 #
 #            pred ham pred spam
 #actual ham      1202         5
 #actual spam       21       166
 
-#1202 messages were predicted to be ham, and are actually ham
+cm_melted <- melt(cm)
+ggplot(cm_melted, aes(x=Var1, y=Var2, fill=value)) + 
+  geom_tile() + 
+  geom_text(aes(label=value), color="black", size=3.5) +
+  scale_fill_gradient(low = "white", high = "steelblue") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Confusion Matrix", x = "Prediction", y = "Actual")
+
+
+#1202 messages were predicted to be ham, and are indeed ham
 #5 messages predicted to be spam, are actually ham
 
 #21 messages predicted to be ham, were actually spam
