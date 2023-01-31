@@ -7,9 +7,6 @@ Creating a naive Bayes spam filter in R. Project for Applied Statistics Course.
 -   Alesandro Žužić (alesandro.zuzic@student.unipu.hr)
 -   Luka Blašković (luka.blaskovic@student.unipu.hr)
 
-### Documentation
-- pdf file will go here
-
 ### Data
 SMS Spam Collection Dataset
 - The SMS Spam Collection is a set of SMS tagged messages that have been collected for SMS Spam research. It contains one set of SMS messages in English of 5,574 messages, tagged acording being ham (legitimate) or spam.
