@@ -4,8 +4,8 @@ Creating a naive Bayes spam filter in R. Project for Applied Statistics Course.
 
 ### Authors and assignments
 
--   Alesandro Žužić (azuzic@unipu.hr)
--   Luka Blašković (lblaskovi@unipu.hr)
+-   Alesandro Žužić (alesandro.zuzic@student.unipu.hr)
+-   Luka Blašković (luka.blaskovic@student.unipu.hr)
 
 ### Documentation
 - pdf file will go here
