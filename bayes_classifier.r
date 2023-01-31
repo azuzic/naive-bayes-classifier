@@ -26,8 +26,18 @@ split <- rsample::initial_split(spam, strata = label)
 train_sample <- rsample::training(split)
 test_sample <- rsample::testing(split)
 
-dim(train_sample)
-dim(test_sample)
+library(ggplot2)
+
+#Data frame with the dimensions of each dataset
+data_dim <- data.frame(Data = c("Train", "Test"),
+                       Dimensions = c(dim(train_sample)[1], dim(test_sample)[1]))
+
+#Bar plot of the ratio of train and test datasets
+ggplot(data_dim, aes(x = Data, y = Dimensions)) +
+  geom_col() +
+  ggtitle("Ratio between Train and Test Data") +
+  xlab("Data Set") +
+  ylab("Number of Observations")
 
 # distributions of the categories (Ham ~85% | Sam ~15%) in train data
 prop.table(table(train_sample$label))
@@ -139,6 +149,19 @@ word_n <- c("unique" = nrow(vocab),
             "spam" = length(spam_vocab))
 class_probs <- prop.table(table(train_sample$label))
 class_probs #Ham~0.866, Spam~0.134
+
+library(ggplot2)
+
+#Creating a dataframe with data probabilities that it is Ham or Spam
+class_probs_df <- data.frame(Class = c("Ham", "Spam"),
+                             Probability = c(class_probs["ham"], class_probs["spam"]))
+
+#Bar plot of probability ratios (Ham data/Spam data)
+ggplot(class_probs_df, aes(x = Class, y = Probability)) +
+  geom_col() +
+  ggtitle("Class Probabilities") +
+  xlab("Class") +
+  ylab("Probability")
 
 #Helper function for calculating the probability of word appearing in a given category (Ham,Spam)
 #This functions relates the amount of words in the category to the amount of total words in the category and adds Laplacian smoothing to ensure the result is never 0.
@@ -254,6 +277,7 @@ ggplot(cm_melted, aes(x=Var1, y=Var2, fill=value)) +
   scale_fill_gradient(low = "white", high = "steelblue") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(title = "Confusion Matrix", x = "Prediction", y = "Actual")
+
 
 
 #1202 messages were predicted to be ham, and are indeed ham
