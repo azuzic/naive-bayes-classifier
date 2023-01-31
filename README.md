@@ -17,10 +17,15 @@ SMS Spam Collection Dataset
 
 ### Short description of available functionalities
 The naive Bayes is a classification algorithm that is suitable for binary and multiclass classification. It's based on applying Bayes' theorem. It is useful for making predictions and forecasting data based on historical results.
+In this project, the classifier will be used to classify SMS messages into two labels: ham and spam, ham being legitimate message and spam being spam.
+Classifier performance was messured using yardstick package. On a 5574 rows dataset, it resulted in high accuracy of 0.984 with Cohen's kappa value of 0.927, indicating almost perfect agreement.
 
-### Youtube video
+Confusion matrix:
+- #1202 messages were predicted to be ham, are indeed ham
+- #5 messages predicted to be spam, are actually ham
 
-[URL text](VIDEO URL)
+- #21 messages predicted to be ham, were actually spam
+- #166 messages predicted to be spam, were spam indeed
 
 ### Organization
 
