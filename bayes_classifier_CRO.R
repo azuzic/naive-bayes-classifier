@@ -43,16 +43,16 @@ ggplot(data_dim, aes(x = Data, y = Dimensions)) +
   xlab("Data Set") +
   ylab("Number of Observations")
 
-# distribucija podataka (Ham ~85% | Sam ~15%) u train podacima
+#Distribucija podataka (Ham ~85% | Spam ~15%) u train podacima
 prop.table(table(train_sample$label))
 
-# distribucija podataka (Ham ~85% | Sam ~15%) u test podacima
+#Distribucija podataka (Ham ~85% | Spam ~15%) u test podacima
 prop.table(table(test_sample$label))
 
 #########################################################
 
-# Da bismo obradili poruke, prvo ih je potrebno podijeliti u pojedinačne riječi
-# te dodatno očistiti podatke. 
+#Da bismo obradili poruke, prvo ih je potrebno podijeliti u pojedinačne riječi
+#te dodatno očistiti podatke. 
 string_cleaner <- function(text_vector) {
   tx <- text_vector %>%
     #Uklanjanje svih interpunkcijskih znakova
@@ -245,7 +245,7 @@ performance
 library(ggplot2)
 library(reshape2)
 
-#Confusion matrix
+#Konfuzijska matrica
 cm <- table(paste("actual", test_sample$label), paste("pred", test_sample$.pred))
 
 cm_melted <- melt(cm)
@@ -256,8 +256,8 @@ ggplot(cm_melted, aes(x=Var1, y=Var2, fill=value)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(title = "Confusion Matrix", x = "Prediction", y = "Actual")
 
-#1202 poruka za koje je predviđeno da su stvarne, i jesu  stvarne
-#5 poruka za koje je predviđeno da su neželjene, su ustvari stvarne
+#1202 poruka za koje je predviđeno da su željene, i jesu  željene.
+#5 poruka za koje je predviđeno da su neželjene, su ustvari željene.
 
-#21 za koje je predviđeno da su stvarne, su ustvari neželjene
-#166 za koje je predviđeno da su neželjene, i jesu neželjene
+#21 za koje je predviđeno da su željene, su ustvari neželjene.
+#166 za koje je predviđeno da su neželjene, i jesu neželjene.

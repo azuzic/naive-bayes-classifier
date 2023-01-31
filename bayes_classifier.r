@@ -39,10 +39,10 @@ ggplot(data_dim, aes(x = Data, y = Dimensions)) +
   xlab("Data Set") +
   ylab("Number of Observations")
 
-# distributions of the categories (Ham ~85% | Sam ~15%) in train data
+# distributions of the categories (Ham ~85% | Spam ~15%) in train data
 prop.table(table(train_sample$label))
 
-# distributions of the categories (Ham ~85% | Sam ~15%) in test data
+# distributions of the categories (Ham ~85% | Spam ~15%) in test data
 prop.table(table(test_sample$label))
 
 
@@ -277,8 +277,6 @@ ggplot(cm_melted, aes(x=Var1, y=Var2, fill=value)) +
   scale_fill_gradient(low = "white", high = "steelblue") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(title = "Confusion Matrix", x = "Prediction", y = "Actual")
-
-
 
 #1202 messages were predicted to be ham, and are indeed ham
 #5 messages predicted to be spam, are actually ham
